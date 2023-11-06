@@ -93,7 +93,6 @@ saudaratiri(X, Y) :- pria(X), wanita(Y), X \= Y, anak(X, Parent1), anak(Y, Paren
 saudaratiri(X, Y) :- wanita(X), pria(Y), X \= Y, anak(X, Parent1), anak(Y, Parent2), Parent1 = Parent2, menikah(Parent1, Pasangan1), menikah(Parent1, Pasangan2), Pasangan1 \= Pasangan2, anak(X, Pasangan1), anak(Y, Pasangan2).
 saudaratiri(X, Y) :- wanita(X), wanita(Y), X \= Y, anak(X, Parent1), anak(Y, Parent2), Parent1 = Parent2, menikah(Parent1, Pasangan1), menikah(Parent1, Pasangan2), Pasangan1 \= Pasangan2, anak(X, Pasangan1), anak(Y, Pasangan2).
     
-
 /* kakak(X, Y) : X adalah kakak dari Y (kakak kandung maupun tiri) */
 kakak(X, Y) :-
     saudara(X, Y),
