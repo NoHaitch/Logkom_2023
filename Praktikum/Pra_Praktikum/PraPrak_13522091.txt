@@ -1,0 +1,55 @@
+/*  Nama : Raden Francisco Trianto Bratadiningrat
+    NIM : 13522091
+*/
+
+/* PraPrak_13522091 .txt*/
+
+Bagian I 
+ 
+/* Suami dari Margot */
+Query: menikah(margot, X).
+    X = henri
+
+/* Kakek buyut dan nenek buyut dari Daniel */
+Query: anak(daniel, _parent), anak(_parent, _grandparent), anak(_grandparent, X).
+    X = athif
+    X = joli
+
+/* Paman dari orang tua Rupert */
+Query: anak(rupert, _parent), anak(_parent, _grandparent), saudara(_grandparent, X), \+ saudaratiri(_grandparent, X), pria(X).
+    X = michael
+
+/* Orang yang memiliki lebih dari satu istri */
+Query: pria(X), menikah(X, _wife1), menikah(X, _wife2), _wife1 \= _wife2.
+    X = fio
+
+/* Saudara tiri tertua dari Emma */
+Query: saudaratiri(emma, X), \+ (saudara(X, _saudaralain), \+ saudaratiri(X, _saudaralain), \+ kakak(X, _)).
+    X = daniel
+
+/* Orang tua yang memiliki tepat satu anak */
+Query: anak(_anak, X), \+ (saudara(_anak, _saudara), \+ saudaratiri(_anak, _saudara)).
+    X = dillon 
+    X = elysia
+    X = fio
+    X = jeni
+
+/* Pria yang memiliki mertua berusia lebih dari 50 tahun */
+Query: pria(X), mertua(_mertua,X), usia(_mertua, _usia), _usia > 50.
+    X = henri
+
+/* Orang yatim piatu dengan usia termuda */
+Query: yatimpiatu(X), \+ (yatimpiatu(_yatimlain), X \= _yatimlain, usia(X, _usiaX), usia(_yatimlain, _usiaY), _usiaX > _usiaY).
+    X = fio
+
+/* Orang diatas 25 tahun yang statusnya menikah dengan orang yang memiliki saudara lebih dari 1 orang */
+Query: menikah(X, _pasangan), usia(X, _usia), _usia > 25, saudara(_pasangan, _saudara1), saudara(_pasangan, _saudara2), _saudara1 \= _saudara2. 
+    X = fio
+
+/* Seluruh keturunan Athif yang memiliki tepat 2 keponakan */
+Query:  keturunan(X, athif), 
+        keponakan(_keponakan1, X), 
+        keponakan(_keponakan2, X), 
+        _keponakan1 \= _keponakan2, 
+        \+ (keponakan(_keponakan3, X), _keponakan3 \= _keponakan1, _keponakan3 \= _keponakan2).
+    no
