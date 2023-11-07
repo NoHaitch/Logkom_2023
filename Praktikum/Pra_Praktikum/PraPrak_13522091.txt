@@ -52,4 +52,5 @@ Query:  keturunan(X, athif),
         keponakan(_keponakan2, X), 
         _keponakan1 \= _keponakan2, 
         \+ (keponakan(_keponakan3, X), _keponakan3 \= _keponakan1, _keponakan3 \= _keponakan2).
-    no
+    X = robert
+    X = bagas
